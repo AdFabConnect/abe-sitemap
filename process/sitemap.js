@@ -31,7 +31,7 @@ function createXml(list, domain, priorities) {
 			}
 
 		  xml += "  <url>\n";
-		  xml += "    <loc>" + domain + file.publish.html.replace(/^\//, '') + "</loc>\n";
+		  xml += "    <loc>" + domain + file.publish.abe_meta.link.replace(/^\//, '') + "</loc>\n";
 		  xml += "    <lastmod>" + newdate + "</lastmod>\n";
 		  xml += "    <priority>" + priority + "</priority>\n";
 		  xml += "  </url>\n";
@@ -85,7 +85,7 @@ if(typeof pConfig.ABE_WEBSITE !== 'undefined' && pConfig.ABE_WEBSITE !== null) {
 				var regex = new RegExp(abe.config.sitemap.folders.regex)
 				Array.prototype.forEach.call(list, function(file) {
 					if (file.publish) {
-						var match = regex.exec(file.publish.html)
+						var match = regex.exec(file.publish.abe_meta.link.replace(/^\//, ''))
 						if(typeof match !== 'undefined' && match !== null
 							&& typeof match[1] !== 'undefined' && match[1] !== null) {
 							if(typeof folders[match[1]] === 'undefined' || folders[match[1]] === null) {
