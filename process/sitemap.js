@@ -85,7 +85,6 @@ if(typeof pConfig.ABE_WEBSITE !== 'undefined' && pConfig.ABE_WEBSITE !== null) {
 				var regex = new RegExp(abe.config.sitemap.folders.regex)
 				Array.prototype.forEach.call(list, function(file) {
 					if (file.publish) {
-						console.log(file.publish)
 						var match = regex.exec(file.publish.html)
 						if(typeof match !== 'undefined' && match !== null
 							&& typeof match[1] !== 'undefined' && match[1] !== null) {
