@@ -119,7 +119,7 @@ if(typeof pConfig.ABE_WEBSITE !== 'undefined' && pConfig.ABE_WEBSITE !== null) {
 					fs.writeFileSync(saveToPath, xml, {encoding: 'utf8'})
 				}
 			}
-
+			abe.abeExtend.lock.remove('sitemap');
 			process.send('finished');
 			process.exit(0)
 		})
