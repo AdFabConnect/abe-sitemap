@@ -120,7 +120,10 @@ if(typeof pConfig.ABE_WEBSITE !== 'undefined' && pConfig.ABE_WEBSITE !== null) {
 				}
 			}
 			abe.abeExtend.lock.remove('sitemap');
-			process.send('finished');
+			try{
+				process.send(JSON.stringify({msg: "exit"}));
+			}
+			catch(e){}
 			process.exit(0)
 		})
 }
